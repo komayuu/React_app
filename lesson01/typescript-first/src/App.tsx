@@ -4,30 +4,19 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const suuji01:number = 777;
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Typescriptから始めるプログラマ生活</h1>
+
+      <p>変数(suuji01)は <strong className='answer'>{suuji01}</strong></p>
+
+      <p>1234 たす 5678 は <strong className='answer'>{1234 + 5678}</strong></p>
+      <p>40 ひく 23 は <strong className='answer'>{40 - 23}</strong></p>
+      <p>2 かける 3 かける 10 は <strong className='answer'>{2 * 3 * 10}</strong></p>
+      <p>1000 わる 250 は <strong className='answer'>{1000 / 250}</strong></p>
+      <p>10 わる 3 の あまりは <strong className='answer'>{10 % 3}</strong></p>
     </>
   )
 }
