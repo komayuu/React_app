@@ -1,24 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const suuji01:number = 777;
+
+  const hour:number = 6;
+  const name:string = "Anna";
+
+  let aisatsu:string = "";
+  
+  
+  if ( hour >= 4 && hour <= 11) {
+    if ( name == "SLスタジオ") {
+      aisatsu = "おはよ！";
+    }
+    else if ( name == "先輩" ) {
+      aisatsu = "おはようございます";
+    }
+    else {
+      aisatsu = "はじめまして";
+    }
+    
+  } 
+  else if ( hour >= 12 && hour <= 16) {
+    aisatsu = "こんにちは";
+  }
+  else if ( (hour >= 17 && hour <= 24) || (hour >= 0 && hour <= 3) ) {
+    aisatsu = "こんばんは";
+  }
 
   return (
     <>
-      <h1>Typescriptから始めるプログラマ生活</h1>
-
-      <p>変数(suuji01)は <strong className='answer'>{suuji01}</strong></p>
-
-      <p>1234 たす 5678 は <strong className='answer'>{1234 + 5678}</strong></p>
-      <p>40 ひく 23 は <strong className='answer'>{40 - 23}</strong></p>
-      <p>2 かける 3 かける 10 は <strong className='answer'>{2 * 3 * 10}</strong></p>
-      <p>1000 わる 250 は <strong className='answer'>{1000 / 250}</strong></p>
-      <p>10 わる 3 の あまりは <strong className='answer'>{10 % 3}</strong></p>
+      <h1>{name}さん {aisatsu}</h1>
     </>
   )
 }
 
-export default App
+export default App;
