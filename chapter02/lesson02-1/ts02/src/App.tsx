@@ -1,8 +1,18 @@
 import './App.css'
 
 function App() {
+
+  // propsの型を定義
+  type ProfileProps = {
+    imageUrl: string,
+    name: string,
+    occupation: string,
+    hobbies: string,
+  }
   
-  const ProfileCard = (props) => {
+  const ProfileCard = (props: ProfileProps) => {
+    const { imageUrl, name, occupation, hobbies } = props;
+    
     return (
       <div className="card">
         <img src="vite.svg" alt="プロフィール画像" />
@@ -20,6 +30,7 @@ function App() {
     <>
       <ProfileCard imageUrl="vite.svg" name="山田 太郎" occupation="プロジェクトマネージャー" hobbies="プログラミング、読書"/>
       <ProfileCard imageUrl="vite.svg" name="鈴木 花子" occupation="ソフトウェアエンジニア" hobbies="ピアノ、映画鑑賞" />
+      <ProfileCard imageUrl='vite.svg' name="佐藤 康太" occupation='インフラエンジニア' hobbies='ライブ鑑賞' />
     </>
   )
 }
