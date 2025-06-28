@@ -11,7 +11,7 @@ function App() {
   }
   
   // imageUrlにデフォルト値を設定
-  const ProfileCard = ({imageUrl = 'vite.svg', name, occupation, hobbies}: ProfileProps) => {
+  const ProfileCard = ({ name, occupation, hobbies}: ProfileProps) => {
 
     return (
       <div className="card">

@@ -1,11 +1,11 @@
-import { BaseSyntheticEvent, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 function App() {
   const [inputText, setInputText] = useState<string>("");
   const [message, setMessage] = useState<string>("おはようございます");
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   }
 
