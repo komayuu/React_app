@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {
   AppBar, Toolbar, Typography, Drawer, List, ListItem,
@@ -44,8 +45,6 @@ const TextCopyComponent = ({ name }: Props) => {
   );
 };
 
-import { useState } from 'react';
-
 const Exam1 = () => {
   const [name, setName] = useState('');
 
@@ -81,6 +80,7 @@ const Exam1 = () => {
 }
 
 const CounterComponent = () => {
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -89,15 +89,15 @@ const CounterComponent = () => {
           カウントアップ
         </Typography>
         <Typography variant="h1" component="p" color="primary" gutterBottom>
-          0
+          {count}
         </Typography>
-        <GradientButton variant="contained">
+        <GradientButton variant="contained" onClick={() => setCount(count + 1)}>
           増やす
         </GradientButton>
-        <OutlineButton variant="outlined">
+        <OutlineButton variant="outlined" onClick={() => setCount(0)}>
           リセット
         </OutlineButton>
-        <GradientButton variant="contained">
+        <GradientButton variant="contained" onClick={() => setCount(count - 1)}>
           減らす
         </GradientButton>
       </StyledPaper>
@@ -121,7 +121,15 @@ const Exam2 = () => {
 }
 
 const Exam3 = () => {
+  const [users, setUsers] = useState([
+    { name: '山田', email: 'yamada@yamada.com' },
+    { name: '鈴木', email: 'suzuki@suzuki.com' }
+  ]);
 
+  const handleAddMember = () => {
+    const newUser = { name: '斎藤 輝幸', email: 'saito@saito.com' };
+    setUsers([...users, newUser]);
+  };
 
   return (
     <>
@@ -132,7 +140,8 @@ const Exam3 = () => {
         ※ヒント : 現在の表示はJSXにべた書きしているため、Users配列をループして出力しなくてはならない。
       </Typography>
 
-      <GradientButton>メンバーを追加</GradientButton>
+      <GradientButton onClick={handleAddMember}>メンバーを追加</GradientButton>
+
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -142,20 +151,18 @@ const Exam3 = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow key="1">
-              <TableCell>山田</TableCell>
-              <TableCell>yamada@yamada.com</TableCell>
+          {users.map((user, index) => (
+            <TableRow key={index}>
+              <TableCell>{user.name}</TableCell>
+              <TableCell>{user.email}</TableCell>
             </TableRow>
-            <TableRow key="2">
-              <TableCell>鈴木</TableCell>
-              <TableCell>suzuki@suzuki.com</TableCell>
-            </TableRow>
+          ))}
           </TableBody>
         </Table>
       </TableContainer>
     </>
   );
-}
+};
 
 function App() {
   return (
