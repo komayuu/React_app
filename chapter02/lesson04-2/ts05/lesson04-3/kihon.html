@@ -1,0 +1,50 @@
+//Typography
+<Container maxWidth='md'>
+  <Typography variant="h1">見出し1</Typography>
+  <Typography variant="h2">見出し2</Typography>
+  <Typography variant="body1">
+    これは本文のテキストです。Typographyコンポーネントを使用することで、テキストのスタイルを簡単に管理できます。
+  </Typography>
+  <Typography variant="caption" color="text.secondary">
+    これはキャプションテキストです。
+  </Typography>
+</Container>
+
+//Paper
+<Container maxWidth='md'>
+  <Stack spacing={2} direction="row">
+    <Paper elevation={3} sx={{ padding: 2, backgroundColor: 'lightblue' }}>
+      <Typography variant="h5">Paperコンポーネントの例</Typography>
+      <Typography>このPaperはエレベーション3とカスタム背景色を持っています。</Typography>
+    </Paper>
+    <Paper elevation={24} sx={{ padding: 2, backgroundColor: 'lightpink' }}>
+      <Typography variant="h5">Paperコンポーネントの例</Typography>
+      <Typography>このPaperはエレベーション24とカスタム背景色を持っています。</Typography>
+    </Paper>
+  </Stack>
+</Container>
+
+//Card
+// - CardHeader: カードのタイトルやサブタイトルを表示するために使用される
+// - CardContent: カードの主要なコンテンツを表示するために使用される
+// - CardActions: カードのアクション（ボタンなど）を配置するために使用される
+<Card>
+  <CardHeader title="タイトル" />
+  <CardContent>
+    <Typography variant="body2" color="text.secondary">
+      ここに内容が入ります。
+    </Typography>
+  </CardContent>
+  <CardActions>
+    <Button size="small">button</Button>
+  </CardActions>
+</Card>
+
+<Card>
+  <CardContent>
+    <Typography variant="h5">コンテンツタイトル</Typography>
+    <Typography variant="body2" color="text.secondary">
+      ここに主要なコンテンツが入ります。
+    </Typography>
+  </CardContent>
+</Card>
