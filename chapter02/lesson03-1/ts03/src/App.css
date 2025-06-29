@@ -60,3 +60,8 @@ h1 {
 .todo-item span {
   cursor: pointer;
 }
+
+.completed {
+  text-decoration: line-through;
+  cursor: pointer;
+}
