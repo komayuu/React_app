@@ -1,21 +1,30 @@
+import { useState } from 'react';
 import './App.css'
 
 function App() {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key == 'Enter') {
-      alert('Enterキーが押されました');
-    }
+  const [hoverText, setHoverText] = useState('ここにマウスを重ねてください');
+
+  // マウスオーバーイベントのハンドラ
+  const handleMouseOver = () => {
+    setHoverText('マウスオーバー中!');
   };
 
+  const handleMouseOut = () => {
+    setHoverText('ここにマウスを重ねてください');
+  };
+
+
   return (
-    <div>
-      <h1>キーボードイベントの例</h1>
-      <input
-        type="text"
-        onKeyDown={handleKeyDown}
-        placeholder="ここに入力してください"
-      />
-    </div>
+    <>
+      {/* マウスオーバーイベント */}
+      <div
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        style={{ marginTop: '20px', padding: '10px', border: '1px solid black' }}
+      >
+        {hoverText}
+      </div>
+    </>
   );
 }
 
