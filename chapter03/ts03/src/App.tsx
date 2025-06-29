@@ -10,6 +10,10 @@ function App() {
     return score >= 70;
   });
 
+  const total: number = scores.reduce((acc, current) => {
+    return acc + current;
+  });
+
   return (
     <>
       <h2>全ての点数</h2>
@@ -18,6 +22,8 @@ function App() {
       【 {passingScores.map(score => (<span>{score}点 </span>))}】
       <h2>合格者数 / 受験者数</h2>
       <p>{passingScores.length}人 / {scores.length}人</p>
+      <h2>合計得点</h2>
+      <p>{total}点</p>
     </>
   )
 }
