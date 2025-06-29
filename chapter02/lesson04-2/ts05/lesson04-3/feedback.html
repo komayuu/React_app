@@ -1,0 +1,114 @@
+//Snackbar
+import { Button, Snackbar } from '@mui/material';
+import { useState } from 'react';
+
+function App() {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (e, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  return (
+    <>
+      <Button variant="outlined" onClick={handleClick}>
+        Show Snackbar
+      </Button>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message="操作が成功しました"
+        action={
+          <Button color="secondary" size="small" onClick={handleClose}>
+            閉じる
+          </Button>
+        }
+      />
+    </>
+  );
+}
+
+export default App
+
+//Alert
+import { Alert, AlertTitle } from '@mui/material';
+
+function App() {
+
+  return (
+    <>
+      <Alert severity="success">
+        <AlertTitle>成功</AlertTitle>
+        操作が成功しました — <strong>おめでとうございます！</strong>
+      </Alert>
+      <Alert severity="error">
+        <AlertTitle>失敗</AlertTitle>
+        操作が失敗しました — <strong>ざんねんでした！</strong>
+      </Alert>
+      <Alert severity="info">
+        <AlertTitle>情報</AlertTitle>
+        操作が行われました — <strong>うけつけしました！</strong>
+      </Alert>
+      <Alert severity="warning">
+        <AlertTitle>情報</AlertTitle>
+        操作をチェック中です — <strong>かくにんしています！</strong>
+      </Alert>
+    </>
+  );
+}
+
+export default App
+
+//Dialog
+import {
+  Button, Dialog,
+  DialogActions, DialogContent,
+  DialogTitle
+} from '@mui/material';
+import { useState } from 'react';
+
+function App() {
+  // Dialog用
+  const [openDialog, setOpenDialog] = useState(false);
+
+  // Dialog用
+  const handleDialogOpen = () => {
+    setOpenDialog(true);
+  };
+  const handleDialogClose = () => {
+    setOpenDialog(false);
+  };
+
+  return (
+    <>
+      <Button variant="outlined" onClick={handleDialogOpen}>
+        Open Dialog
+      </Button>
+
+      <Dialog open={openDialog} onClose={handleDialogClose}>
+        <DialogTitle>確認</DialogTitle>
+        <DialogContent>
+          <p>この操作を続行しますか？</p>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDialogClose} color="primary">
+            キャンセル
+          </Button>
+          <Button onClick={handleDialogClose} color="primary">
+            確認
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
+}
+
+export default App
