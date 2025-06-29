@@ -31,16 +31,27 @@ const Dashboard = () => (
 
 );
 
-const TextCopyComponent = () => {
+type Props = {
+  name: string;
+};
+
+const TextCopyComponent = ({ name }: Props) => {
 
   return (
     <Typography variant="h5" component="div">
-
+      {name}
     </Typography>
   );
-}
+};
+
+import { useState } from 'react';
 
 const Exam1 = () => {
+  const [name, setName] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  }
 
   return (
     <>
@@ -53,7 +64,7 @@ const Exam1 = () => {
         TextCopyComponentに値を設定する場合はinterfaceかtypeで型を設定する事。
       </Typography>
       <Box component="form" sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}>
-        <TextField label="名前" name="name" variant="outlined" />
+        <TextField label="名前" name="name" variant="outlined" value={name} onChange={handleChange} />
       </Box>
       <Box>
         <Card sx={{ minWidth: 275 }}>
@@ -61,7 +72,7 @@ const Exam1 = () => {
             <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
               この下に出力結果を出そう！
             </Typography>
-            <TextCopyComponent />
+            <TextCopyComponent name={name}/>
           </CardContent>
         </Card>
       </Box>
